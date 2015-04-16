@@ -4,15 +4,9 @@
 
 #include <catch.hpp>
 
-//#include "utilities.hpp"
-
 #include "var_float.h"
 
 namespace var_float_c_tests {
-
-#define TO_STRING_P(profile, packed) inflate(trim(stringify(packed), profile.bits), profile.bits, profile.exp_bits)
-#define TO_STRING(bits, exp, packed) inflate(trim(stringify(packed), bits), bits, exp)
-#define FROM_STRING(profile, string) parse(inflate(string, bits, exp), bits)
 
 	const vf_profile_t profile_8 = vf_profile_default(8);
 	const vf_profile_t profile_16 = vf_profile_default(16);
