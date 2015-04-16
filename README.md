@@ -45,6 +45,10 @@ Packing `64bit` floating-point value into most compact floating-point representa
 	vf_profile_t profile; // optimal compact profile
 	const uint16_t output = vf_optimize(input, epsilon, (vf_profile_t *)profiles, profiles_count, &profile);
 
+There actually **is a lot more** to **var\_float** though. (There are a total of about ~40 functions for dealing with variable sized floats actually.) So feel encouraged to check them out in `var_float.h` yourself! :)
+
+What **var\_float** does **not provide** however are implementations of floating-point arithmetic operations. Patches (if properly tested) are very much welcome though. ;)
+
 ## Dependencies
 
 [Catch][1] for running unit tests. (optional)
