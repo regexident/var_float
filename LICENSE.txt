@@ -25,7 +25,7 @@ were derived from NumPy's halffloat implementation:
 
 https://github.com/numpy/numpy/blob/master/numpy/core/src/npymath/halffloat.c
 
-and are therefor subject to the following license:
+and are therefore subject to the following license:
 
 Copyright (c) 2005-2015, NumPy Developers.
 All rights reserved.
