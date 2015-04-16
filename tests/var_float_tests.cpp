@@ -267,37 +267,33 @@ namespace var_float_c_tests {
 		REQUIRE(vf_optimize(input, 0.00000000001, (vf_profile_t *)profiles, 7, &profile_out) == 0b001111111100111100000011001010010000101000110001);
 		REQUIRE(vf_optimize(input, 0.00000000000001, (vf_profile_t *)profiles, 7, &profile_out) == 0b00111111111001111000000110010100100001010001100010110100);
 	}
-	
+
 	TEST_CASE("vf_min", "[vf_util]") {
-		REQUIRE(vf_min(profile_32) == vf_base_from_float(FLT_MIN, profile_32, nullptr));
-		REQUIRE(vf_min(profile_64) == vf_base_from_double(DBL_MIN, profile_64, nullptr));
+		REQUIRE(vf_min(profile_32) == 0b00000000100000000000000000000000);
+		REQUIRE(vf_min(profile_64) == 0b0000000000010000000000000000000000000000000000000000000000000000);
 	}
 	
 	TEST_CASE("vf_max", "[vf_util]") {
-		REQUIRE(vf_max(profile_32) == vf_base_from_float(FLT_MAX, profile_32, nullptr));
-		REQUIRE(vf_max(profile_64) == vf_base_from_double(DBL_MAX, profile_64, nullptr));
+		REQUIRE(vf_max(profile_32) == 0b01111111011111111111111111111111);
+		REQUIRE(vf_max(profile_64) == 0b0111111111101111111111111111111111111111111111111111111111111111);
 	}
 	
 	TEST_CASE("vf_lowest", "[vf_util]") {
-		REQUIRE(vf_lowest(profile_32) == vf_base_from_float(-FLT_MAX, profile_32, nullptr));
-		REQUIRE(vf_lowest(profile_64) == vf_base_from_double(-DBL_MAX, profile_64, nullptr));
+		REQUIRE(vf_lowest(profile_32) == 0b11111111011111111111111111111111);
+		REQUIRE(vf_lowest(profile_64) == 0b1111111111101111111111111111111111111111111111111111111111111111);
 	}
 	
 //	TEST_CASE("vf_epsilon", "[vf_util]") {
-//		REQUIRE(vf_epsilon(profile_32) == vf_base_from_float(FLT_EPSILON, profile_32, nullptr));
-//		REQUIRE(vf_epsilon(profile_64) == vf_base_from_double(DBL_EPSILON, profile_64, nullptr));
+//		vf_epsilon not yet implemented
 //	}
 	
 //	TEST_CASE("vf_round_error", "[vf_util]") {
-//		REQUIRE(vf_round_error(profile_32) == vf_base_from_float(0.5f, profile_32, nullptr));
-//		REQUIRE(vf_round_error(profile_64) == vf_base_from_double(0.5, profile_64, nullptr));
+//		vf_round_error not yet implemented
 //	}
 	
 	TEST_CASE("vf_qnan", "[vf_util]") {
 		REQUIRE(vf_qnan(profile_32) == 0b01111111110000000000000000000000);
 		REQUIRE(vf_qnan(profile_64) == 0b0111111111111000000000000000000000000000000000000000000000000000);
-		REQUIRE(vf_qnan(profile_32) == vf_base_from_float((float)NAN, profile_32, nullptr));
-		REQUIRE(vf_qnan(profile_64) == vf_base_from_double((double)NAN, profile_64, nullptr));
 	}
 	
 	TEST_CASE("vf_snan", "[vf_util]") {
@@ -346,13 +342,13 @@ namespace var_float_c_tests {
 	}
 	
 	TEST_CASE("vf_nan", "[vf_util]") {
-		REQUIRE(vf_nan(profile_32) == vf_base_from_float((float)NAN, profile_32, nullptr));
-		REQUIRE(vf_nan(profile_64) == vf_base_from_double((double)NAN, profile_64, nullptr));
+		REQUIRE(vf_nan(profile_32) == 0b01111111110000000000000000000000);
+		REQUIRE(vf_nan(profile_64) == 0b0111111111111000000000000000000000000000000000000000000000000000);
 	}
 	
 	TEST_CASE("vf_inf", "[vf_util]") {
-		REQUIRE(vf_inf(profile_32) == vf_base_from_float((float)INFINITY, profile_32, nullptr));
-		REQUIRE(vf_inf(profile_64) == vf_base_from_double((double)INFINITY, profile_64, nullptr));
+		REQUIRE(vf_inf(profile_32) == 0b01111111100000000000000000000000);
+		REQUIRE(vf_inf(profile_64) == 0b0111111111110000000000000000000000000000000000000000000000000000);
 	}
 	
 	TEST_CASE("vf_abs", "[vf_util]") {
