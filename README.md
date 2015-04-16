@@ -30,7 +30,7 @@ Unpacking `16bit` floating-point value to `64bit` floating-point representation:
 	const uint16_t input = 20800;
 	const vf_profile_t profile = vf_profile_default(16);
 	vf_status_t status; // used for checking for over/underflows
-	const uint16_t output = (uint16_t) vf_base_from_double(input, profile, &status);
+	const double output = vf_base_to_double(input, profile, &status);
 
 Packing `64bit` floating-point value into most compact floating-point representation:
 
